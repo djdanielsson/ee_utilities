@@ -45,11 +45,14 @@
                 - netaddr
               galaxy:
                 collections:
-                  - infra.controller_configuration
-                  - infra.ah_configuration
-                  - infra.ee_utilities
-                  - infra.aap_utilities
-                  - awx.awx
+                  - name: infra.controller_configuration
+                  - name: infra.ah_configuration
+                  - name: infra.ee_utilities
+                  - name: infra.aap_utilities
+                  - name: infra.eda_configuration
+                    type: git
+                    source: https://github.com/redhat-cop/eda_configuration.git
+                  - name: awx.awx
             build_steps:
               append_final:
                 - RUN true && microdnf clean all && microdnf upgrade --refresh && microdnf clean all && true
